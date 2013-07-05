@@ -44,10 +44,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Command.cs" />
+    <Compile Include="Core\ValidationResult.cs" />
+    <Compile Include="Data\ModelConfigurations\DashboardConfiguration.cs" />
+    <Compile Include="Data\DatabaseInitialiser.cs" />
+    <Compile Include="Data\DashboardContext.cs" />
+    <Compile Include="Data\ModelConfigurations\DashboardGadgetConfiguration.cs" />
+    <Compile Include="Data\ModelConfigurations\GadgetConfiguration.cs" />
+    <Compile Include="Data\IDbContext.cs" />
+    <Compile Include="Entities\Dashboard.cs" />
+    <Compile Include="Entities\Gadget.cs" />
+    <Compile Include="Migrations\201307051557240_initial.cs" />
+    <Compile Include="Migrations\201307051557240_initial.Designer.cs">
+      <DependentUpon>201307051557240_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201307051557240_initial.resx">
+      <DependentUpon>201307051557240_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
