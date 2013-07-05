@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Web", "CQRS.Web\CQRS.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Domain", "CQRS.Domain\CQRS.Domain.csproj", "{CC3A6C26-3A3B-4A85-998C-67F784FC2EE8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BABD2B06-AEDD-4E4B-970F-F268F6EB80B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Web.Tests", "CQRS.Web.Tests\CQRS.Web.Tests.csproj", "{DC7747F2-9E35-4849-AD38-BCC0EFE6408C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Domain.Tests", "CQRS.Domain.Tests\CQRS.Domain.Tests.csproj", "{1B6FE435-557B-47A5-ADB2-6A6F63AE4194}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +25,20 @@ Global
 		{CC3A6C26-3A3B-4A85-998C-67F784FC2EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3A6C26-3A3B-4A85-998C-67F784FC2EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3A6C26-3A3B-4A85-998C-67F784FC2EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC7747F2-9E35-4849-AD38-BCC0EFE6408C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7747F2-9E35-4849-AD38-BCC0EFE6408C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7747F2-9E35-4849-AD38-BCC0EFE6408C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7747F2-9E35-4849-AD38-BCC0EFE6408C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B6FE435-557B-47A5-ADB2-6A6F63AE4194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6FE435-557B-47A5-ADB2-6A6F63AE4194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6FE435-557B-47A5-ADB2-6A6F63AE4194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6FE435-557B-47A5-ADB2-6A6F63AE4194}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC7747F2-9E35-4849-AD38-BCC0EFE6408C} = {BABD2B06-AEDD-4E4B-970F-F268F6EB80B3}
+		{1B6FE435-557B-47A5-ADB2-6A6F63AE4194} = {BABD2B06-AEDD-4E4B-970F-F268F6EB80B3}
 	EndGlobalSection
 EndGlobal
