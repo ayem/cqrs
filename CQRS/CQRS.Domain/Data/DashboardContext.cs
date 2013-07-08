@@ -13,7 +13,7 @@ namespace CQRS.Domain.Data
 
         public IDbSet<T> Item<T>() where T : class
         {
-            return base.Set<T>();
+            return this.Set<T>();
         }
     }
 }

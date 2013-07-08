@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DashboardControllerTests.cs" />
     <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +56,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CQRS.Domain\CQRS.Domain.csproj">
+      <Project>{cc3a6c26-3a3b-4a85-998c-67f784fc2ee8}</Project>
+      <Name>CQRS.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CQRS.Web\CQRS.Web.csproj">
       <Project>{7005dbd7-a29a-4015-bb51-4d910c96064d}</Project>
       <Name>CQRS.Web</Name>

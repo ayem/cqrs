@@ -1,30 +1,30 @@
-﻿using CQRS.Domain.Entities;
-using CQRS.Domain.Services;
-using System;
+﻿using CQRS.Domain.Commands;
+using CQRS.Domain.Core;
+using CQRS.Domain.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using CQRS.Domain.Queries;
 
 namespace CQRS.Web.Controllers
 {
     public class DashboardController : ApiController
     {
-        private readonly IDashboardService dashboardService;
-        public DashboardController(IDashboardService dashboardService)
+        private readonly ICommandHandler commandHandler;
+        private readonly IQueryHandler queryHandler;
+        public DashboardController(ICommandHandler commandHandler, IQueryHandler queryHandler)
         {
-            this.dashboardService = dashboardService;
+            this.commandHandler = commandHandler;
+            this.queryHandler = queryHandler;
         }
 
         public List<Dashboard> Get()
         {
-            return this.dashboardService.GetAll();
+            return this.queryHandler.Handle(new GetAllQuery<Dashboard>());
         }
 
         public Dashboard Post(Dashboard dashboard)
         {
-            this.dashboardService.Add(dashboard);
+            this.commandHandler.Execute(new AddDashboardCommand(dashboard));            
             return dashboard;
         }
     }

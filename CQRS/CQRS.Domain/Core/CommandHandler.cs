@@ -1,18 +1,32 @@
 ﻿using CQRS.Domain.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CQRS.Domain.Core
 {   
-    public class CommandHandler
+    public interface ICommandHandler
+    {
+        void Execute(params Command[] commands);
+    }
+
+    public class CommandHandler : ICommandHandler
     {
         private readonly IDbContext context;
         public CommandHandler(IDbContext context)
         {
             this.context = context;
-        }        
+        }               
+        
+        public void Execute(params Command[] commands)
+        {           
+            foreach (var command in commands)
+            {
+                var valResult = command.Validate();
+                if (valResult == null || valResult.IsValid == false)
+                    throw new CommandException(valResult);
+
+                command.Execute(this.context);
+            }
+
+            this.context.SaveChanges();
+        }
     }
 }

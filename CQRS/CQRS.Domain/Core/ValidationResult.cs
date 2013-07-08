@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CQRS.Domain.Core
 {
@@ -14,5 +12,15 @@ namespace CQRS.Domain.Core
 
         public bool IsValid { get; set; }
         public List<string> ErrorMessages { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as ValidationResult;
+            if (other == null) return false;
+
+            var except = this.ErrorMessages.Except(other.ErrorMessages);
+            
+            return other.IsValid == this.IsValid && except.Any() == false;
+        }
     }
 }
