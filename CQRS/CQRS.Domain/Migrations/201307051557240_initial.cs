@@ -13,6 +13,7 @@ namespace CQRS.Domain.Migrations
                     {
                         Dashboard_Id = c.Int(nullable: false, identity: true),
                         Dashboard_Title = c.String(maxLength: 300),
+
                     })
                 .PrimaryKey(t => t.Dashboard_Id);
             

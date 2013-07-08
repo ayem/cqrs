@@ -10,5 +10,10 @@ namespace CQRS.Domain.Data
             modelBuilder.Configurations.Add(new DashboardConfiguration());
             modelBuilder.Configurations.Add(new GadgetConfiguration());
         }
+
+        public IDbSet<T> Item<T>() where T : class
+        {
+            return base.Set<T>();
+        }
     }
 }

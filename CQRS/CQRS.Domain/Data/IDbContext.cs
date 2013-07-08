@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace CQRS.Domain.Data
 {
     public interface IDbContext
-    {        
+    {               
+        IDbSet<T> Item<T>() where T : class;
         int SaveChanges();
     }
 }
