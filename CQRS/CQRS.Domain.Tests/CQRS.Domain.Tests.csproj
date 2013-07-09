@@ -53,7 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\AddDashboardCommandTests.cs" />
+    <Compile Include="Commands\CommandHelper.cs" />
+    <Compile Include="Commands\CreateDashboardCommandTests.cs" />
+    <Compile Include="Commands\BaseDashboardCommandTests.cs" />
+    <Compile Include="Commands\UpdateDashboardCommandTests.cs" />
     <Compile Include="Core\CommandExceptionTests.cs" />
     <Compile Include="Core\CommandHandlerTests.cs" />
     <Compile Include="Core\CommandTests.cs" />

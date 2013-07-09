@@ -31,7 +31,7 @@ namespace CQRS.Web.Tests.Controllers
         }
 
         [Test]
-        public void Post_UsesAddDashboardCommand()
+        public void Post_UsesCreateDashboardCommand()
         {
             // Arrange
             var dashboard = new Dashboard { Title = "shane was here" };
@@ -41,7 +41,22 @@ namespace CQRS.Web.Tests.Controllers
 
             // Verify the add command called and the dashboard is returned
             this.commandMock.Verify(x =>
-                x.Execute(It.Is<AddDashboardCommand>(d => d.Dashboard.Equals(dashboard))), Times.Once());
+                x.Execute(It.Is<CreateDashboardCommand>(d => d.Dashboard.Equals(dashboard))), Times.Once());
+            Assert.AreEqual(dashboard, updated);
+        }
+
+        [Test]
+        public void Put_UsesUpdateDashboardCommand()
+        {
+            // Arrange
+            var dashboard = new Dashboard { Title = "shane was here" };
+
+            // Act
+            var updated = this.sut.Put(dashboard);
+
+            // Verify the add command called and the dashboard is returned
+            this.commandMock.Verify(x =>
+                x.Execute(It.Is<UpdateDashboardCommand>(d => d.Dashboard.Equals(dashboard))), Times.Once());
             Assert.AreEqual(dashboard, updated);
         }
     }

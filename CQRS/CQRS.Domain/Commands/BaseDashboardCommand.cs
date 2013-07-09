@@ -1,14 +1,15 @@
-﻿using CQRS.Domain.Core;
+﻿using System.Linq;
+using CQRS.Domain.Core;
 using CQRS.Domain.Data;
 using CQRS.Domain.Entities;
-using System.Linq;
 
 namespace CQRS.Domain.Commands
 {
-    public class AddDashboardCommand : Command
+    public abstract class BaseDashboardCommand : Command
     {
         public Dashboard Dashboard { get; private set; }
-        public AddDashboardCommand(Dashboard dashboard)
+
+        protected BaseDashboardCommand(Dashboard dashboard)
         {
             this.Dashboard = dashboard;
         }
@@ -24,9 +25,6 @@ namespace CQRS.Domain.Commands
             return validationResult;
         }
 
-        public override void Execute(IDbContext context)
-        {    
-            context.Item<Dashboard>().Add(this.Dashboard);
-        }
+        public override abstract void Execute(IDbContext context);
     }
 }

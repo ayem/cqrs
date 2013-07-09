@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\AddDashboardCommand.cs" />
+    <Compile Include="Commands\BaseDashboardCommand.cs" />
+    <Compile Include="Commands\CreateDashboardCommand.cs" />
+    <Compile Include="Commands\UpdateDashboardCommand.cs" />
     <Compile Include="Core\Command.cs" />
     <Compile Include="Core\CommandException.cs" />
     <Compile Include="Core\CommandHandler.cs" />

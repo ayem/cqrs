@@ -24,7 +24,13 @@ namespace CQRS.Web.Controllers
 
         public Dashboard Post(Dashboard dashboard)
         {
-            this.commandHandler.Execute(new AddDashboardCommand(dashboard));            
+            this.commandHandler.Execute(new CreateDashboardCommand(dashboard));            
+            return dashboard;
+        }
+
+        public Dashboard Put(Dashboard dashboard)
+        {
+            this.commandHandler.Execute(new UpdateDashboardCommand(dashboard));
             return dashboard;
         }
     }
