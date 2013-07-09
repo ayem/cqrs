@@ -12,7 +12,7 @@ namespace CQRS.Domain.Commands
 
         public override void Execute(IDbContext context)
         {
-            context.Item<Dashboard>().Attach(this.Dashboard);
+            context.Update(this.Dashboard);
         }
     }
 }

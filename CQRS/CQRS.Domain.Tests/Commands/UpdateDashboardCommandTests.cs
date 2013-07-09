@@ -9,7 +9,7 @@ namespace CQRS.Domain.Tests.Commands
     public class UpdateDashboardCommandTests
     {                 
         [Test]
-        public void Execute_AddsToContext()
+        public void Execute_UpdatesToContext()
         {
             var dashboard = new Dashboard { Title = "dsdf" };
             var sut = new UpdateDashboardCommand(dashboard);
@@ -17,7 +17,7 @@ namespace CQRS.Domain.Tests.Commands
 
             sut.Execute(cmdHelper.DbContext);
 
-            cmdHelper.DbSetMock.Verify(x => x.Attach(dashboard), Times.Once());
+            cmdHelper.DbContextMock.Verify(x => x.Update(dashboard), Times.Once());
         }
 
         [Test]

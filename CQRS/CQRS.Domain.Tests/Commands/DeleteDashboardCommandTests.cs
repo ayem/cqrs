@@ -16,7 +16,7 @@ namespace CQRS.Domain.Tests.Commands
 
             sut.Execute(cmdHelper.DbContext);
 
-            cmdHelper.DbSetMock.Verify(x => x.Remove(It.Is<Dashboard>(d => d.Id == 10)), Times.Once());
+            cmdHelper.DbContextMock.Verify(x => x.Delete(It.Is<Dashboard>(d => d.Id == 10)), Times.Once());
         }
     }
 }

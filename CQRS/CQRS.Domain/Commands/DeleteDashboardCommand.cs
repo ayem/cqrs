@@ -15,7 +15,7 @@ namespace CQRS.Domain.Commands
 
         public override void Execute(IDbContext context)
         {
-            context.Item<Dashboard>().Remove(new Dashboard {Id = this.DashboardId});
+            context.Delete(new Dashboard {Id = this.DashboardId});
         }
     }
 }
