@@ -45,7 +45,7 @@ namespace CQRS.Domain.Tests.Commands
             var dbSetMock = new Mock<IDbSet<Dashboard>>();
             contextMock.Setup(x => x.Item<Dashboard>()).Returns(dbSetMock.Object);
 
-            sut.Execute(contextMock.Object);
+            sut.Execute(contextMock.Object);  
 
             dbSetMock.Verify(x => x.Add(dashboard), Times.Once());
         }

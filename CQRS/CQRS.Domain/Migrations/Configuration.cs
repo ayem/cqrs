@@ -1,11 +1,11 @@
+using CQRS.Domain.Data;
+using CQRS.Domain.Entities;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
+
 namespace CQRS.Domain.Migrations
 {
-    using CQRS.Domain.Data;
-    using CQRS.Domain.Entities;
-    using System.Collections.Generic;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     public sealed class Configuration : DbMigrationsConfiguration<DashboardContext>
     {
         public Configuration()

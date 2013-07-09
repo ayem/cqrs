@@ -10,7 +10,7 @@ namespace CQRS.Domain.Queries
     {
         public override List<T> Execute(IDbContext context)
         {
-            return context.Item<T>().ToList();
+            return (from t in context.QueryItems<T>() select t).ToList();
         }
     }
 }
