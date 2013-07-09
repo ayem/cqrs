@@ -22,6 +22,11 @@ namespace CQRS.Web.Controllers
             return this.queryHandler.Handle(new GetAllQuery<Dashboard>());
         }
 
+        public Dashboard Get(int id)
+        {
+            return this.queryHandler.Handle(new GetSingleQuery<Dashboard>(id));
+        }
+
         public Dashboard Post(Dashboard dashboard)
         {
             this.commandHandler.Execute(new CreateDashboardCommand(dashboard));            
@@ -32,6 +37,12 @@ namespace CQRS.Web.Controllers
         {
             this.commandHandler.Execute(new UpdateDashboardCommand(dashboard));
             return dashboard;
+        }
+
+        public SuccessMessage Delete(int id)
+        {
+            this.commandHandler.Execute(new DeleteDashboardCommand(id));
+            return new SuccessMessage("Dashboard {0} deleted", id);
         }
     }
 }

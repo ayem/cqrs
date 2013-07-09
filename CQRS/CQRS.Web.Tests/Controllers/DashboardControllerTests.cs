@@ -31,6 +31,13 @@ namespace CQRS.Web.Tests.Controllers
         }
 
         [Test]
+        public void GetById_CallsGetSingleQuery()
+        {            
+            this.sut.Get(1);
+            this.queryMock.Verify(x => x.Handle(It.Is<GetSingleQuery<Dashboard>>(q => (int)q.Keys[0] == 1)), Times.Once());
+        }
+
+        [Test]
         public void Post_UsesCreateDashboardCommand()
         {
             // Arrange
@@ -55,9 +62,20 @@ namespace CQRS.Web.Tests.Controllers
             var updated = this.sut.Put(dashboard);
 
             // Verify the add command called and the dashboard is returned
-            this.commandMock.Verify(x =>
-                x.Execute(It.Is<UpdateDashboardCommand>(d => d.Dashboard.Equals(dashboard))), Times.Once());
+            this.commandMock.Verify(x => x.Execute(It.Is<UpdateDashboardCommand>(d => d.Dashboard.Equals(dashboard))),
+                                    Times.Once());
             Assert.AreEqual(dashboard, updated);
+        }
+
+        [Test]
+        public void Delete_UsesDeleteDashboardCommand()
+        {
+            var expected = new SuccessMessage {Message = "Dashboard 10 deleted"};
+            var responseMessage = this.sut.Delete(10);
+
+            this.commandMock.Verify(x => x.Execute(It.Is<DeleteDashboardCommand>(d => d.DashboardId == 10)),
+                                    Times.Once());
+            Assert.AreEqual(expected, responseMessage);
         }
     }
 }

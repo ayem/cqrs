@@ -6,7 +6,9 @@ namespace CQRS.Web.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Routes.MapHttpRoute(name: "Main", routeTemplate: "{controller}", defaults: new { controller = "Home" });
+            config.Routes.MapHttpRoute(
+                name: "Main", routeTemplate: "{controller}/{id}",
+                defaults: new {controller = "Home", id = RouteParameter.Optional});
         }
     }
 }

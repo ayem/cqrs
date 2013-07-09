@@ -56,6 +56,7 @@
     <Compile Include="Commands\CommandHelper.cs" />
     <Compile Include="Commands\CreateDashboardCommandTests.cs" />
     <Compile Include="Commands\BaseDashboardCommandTests.cs" />
+    <Compile Include="Commands\DeleteDashboardCommandTests.cs" />
     <Compile Include="Commands\UpdateDashboardCommandTests.cs" />
     <Compile Include="Core\CommandExceptionTests.cs" />
     <Compile Include="Core\CommandHandlerTests.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Core\QueryHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\GetAllQueryTests.cs" />
+    <Compile Include="Queries\GetSingleQueryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
