@@ -1,3 +1,6 @@
+// to test this git stuff and to ask shane: is this a better way of injecting the dependencies
+// than the one we actually use on the dashboard/basal projects?
+// And is this all that is needed? don't we need something on the global.asax or the web.config?
 [assembly: WebActivator.PreApplicationStartMethod(typeof(CQRS.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(CQRS.Web.App_Start.NinjectWebCommon), "Stop")]
 
